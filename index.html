@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מעצב חולצות AI עתידני</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            text-align: right;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        #designOptions {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #tshirtPreview {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>מעצב חולצות AI עתידני</h1>
+        <div id="designOptions">
+            <button onclick="generateDesign('טקסט')">הוסף טקסט</button>
+            <button onclick="generateDesign('צורה')">הוסף צורה</button>
+            <button onclick="generateDesign('תמונה')">הוסף תמונה</button>
+        </div>
+        <div id="tshirtPreview">תצוגה מקדימה של החולצה</div>
+    </div>
+
+    <script>
+        function generateDesign(type) {
+            const preview = document.getElementById('tshirtPreview');
+            let design;
+            switch(type) {
+                case 'טקסט':
+                    design = generateText();
+                    break;
+                case 'צורה':
+                    design = generateShape();
+                    break;
+                case 'תמונה':
+                    design = generateImage();
+                    break;
+                default:
+                    design = 'אנא בחר אפשרות עיצוב';
+            }
+            preview.innerHTML = design;
+        }
+
+        function generateText() {
+            const texts = ['מגניב', 'AI', 'עתידני', 'חדשני'];
+            return texts[Math.floor(Math.random() * texts.length)];
+        }
+
+        function generateShape() {
+            const shapes = ['⭐', '◯', '△', '◻'];
+            return shapes[Math.floor(Math.random() * shapes.length)];
+        }
+
+        function generateImage() {
+            return '🖼️ (תמונה מיוצרת על ידי AI)';
+        }
+    </script>
+</body>
+</html>
